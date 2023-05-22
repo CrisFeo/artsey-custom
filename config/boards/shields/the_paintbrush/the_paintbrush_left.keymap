@@ -30,26 +30,26 @@
     compatible = "zmk,keymap";
     base_layer {
       bindings = <
-        &kp S &kp T &kp R &kp A
-        &kp O &kp I &kp Y &kp E
+        &kp S   &kp T   &kp R   &kp A
+        &kp O   &kp I   &kp Y   &kp E
       >;
     };
     symbol_layer {
       bindings = <
-        &kp NUMBER_3 &kp NUMBER_2 &kp NUMBER_1 &kp NUMBER_0
-        &kp NUMBER_7 &kp NUMBER_6 &kp NUMBER_5 &kp NUMBER_4
+        &kp NUMBER_3   &kp NUMBER_2   &kp NUMBER_1   &kp NUMBER_0
+        &kp NUMBER_7   &kp NUMBER_6   &kp NUMBER_5   &kp NUMBER_4
       >;
     };
     move_layer {
       bindings = <
-        &kp LC(LEFT_ARROW) &kp LC(DOWN_ARROW) &kp LC(UP_ARROW) &kp LC(RIGHT_ARROW)
-        &kp LEFT_ARROW     &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW
+        &kp LC(LEFT_ARROW)   &kp LC(DOWN_ARROW)   &kp LC(UP_ARROW)   &kp LC(RIGHT_ARROW)
+        &kp LEFT_ARROW       &kp DOWN_ARROW       &kp UP_ARROW       &kp RIGHT_ARROW
       >;
     };
     bluetooth_layer {
       bindings = <
-        &none        &none        &none        &none
-        &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0
+        &none          &none          &none          &none
+        &bt BT_SEL 3   &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0
       >;
     };
   };
@@ -132,19 +132,19 @@
     COMBO(SYMBOL_LAYER_ID, forward_slash,        BTN_IT BTN_MT BTN_RT, &kp SLASH)
     COMBO(SYMBOL_LAYER_ID, backward_slash,       BTN_MT BTN_RT BTN_PT, &kp BACKSLASH)
 
-    COMBO(SYMBOL_LAYER_ID, pipe,        BTN_IB BTN_PB,               &kp PIPE)
-    COMBO(SYMBOL_LAYER_ID, quote,       BTN_IT BTN_MB BTN_RB,        &kp DOUBLE_QUOTE)
-    COMBO(SYMBOL_LAYER_ID, comma,       BTN_IT BTN_MB,               &kp COMMA)
-    COMBO(SYMBOL_LAYER_ID, semicolon,   BTN_IT BTN_RB,               &kp SEMICOLON)
-    COMBO(SYMBOL_LAYER_ID, exclamation, BTN_IT BTN_PB,               &kp EXCLAMATION)
-    COMBO(SYMBOL_LAYER_ID, grave,       BTN_IT BTN_MT BTN_RT BTN_PB, &kp GRAVE)
-    COMBO(SYMBOL_LAYER_ID, tilde,       BTN_RT BTN_RB,               &kp TILDE)
-    COMBO(SYMBOL_LAYER_ID, at_sign,     BTN_IT BTN_MT BTN_PB,        &kp AT_SIGN)
-    COMBO(SYMBOL_LAYER_ID, pound,       BTN_IT BTN_IB,               &kp POUND)
-    COMBO(SYMBOL_LAYER_ID, dollar,      BTN_MT BTN_IB,               &kp DOLLAR)
-    COMBO(SYMBOL_LAYER_ID, percent,     BTN_MT BTN_RB,               &kp PERCENT)
-    COMBO(SYMBOL_LAYER_ID, ampersand,   BTN_IT BTN_PT,               &kp AMPERSAND)
-    COMBO(SYMBOL_LAYER_ID, underscore,  BTN_IB BTN_MB BTN_RB BTN_PB, &kp UNDERSCORE)
+    COMBO(SYMBOL_LAYER_ID, vertical_bar, BTN_IB BTN_PB,               &kp PIPE)
+    COMBO(SYMBOL_LAYER_ID, quote,        BTN_IT BTN_MB BTN_RB,        &kp DOUBLE_QUOTES)
+    COMBO(SYMBOL_LAYER_ID, comma,        BTN_IT BTN_MB,               &kp COMMA)
+    COMBO(SYMBOL_LAYER_ID, semicolon,    BTN_IT BTN_RB,               &kp SEMICOLON)
+    COMBO(SYMBOL_LAYER_ID, exclamation,  BTN_IT BTN_PB,               &kp EXCLAMATION)
+    COMBO(SYMBOL_LAYER_ID, grave,        BTN_IT BTN_MT BTN_RT BTN_PB, &kp GRAVE)
+    COMBO(SYMBOL_LAYER_ID, tilde,        BTN_RT BTN_RB,               &kp TILDE)
+    COMBO(SYMBOL_LAYER_ID, at,           BTN_IT BTN_MT BTN_PB,        &kp AT_SIGN)
+    COMBO(SYMBOL_LAYER_ID, pound,        BTN_IT BTN_IB,               &kp POUND)
+    COMBO(SYMBOL_LAYER_ID, dollar,       BTN_MT BTN_IB,               &kp DOLLAR)
+    COMBO(SYMBOL_LAYER_ID, percent,      BTN_MT BTN_RB,               &kp PERCENT)
+    COMBO(SYMBOL_LAYER_ID, ampersand,    BTN_IT BTN_PT,               &kp AMPERSAND)
+    COMBO(SYMBOL_LAYER_ID, underscore,   BTN_IB BTN_MB BTN_RB BTN_PB, &kp UNDERSCORE)
 
     // Move layer
     ////////////////////
