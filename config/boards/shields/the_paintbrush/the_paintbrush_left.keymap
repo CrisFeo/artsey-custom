@@ -14,8 +14,8 @@
 
 #define COMBO_TIMEOUT 100
 
-#define BASE_LAYER_ID = 0
-#define SYMBOL_LAYER_ID = 1
+#define BASE_LAYER_ID 0
+#define SYMBOL_LAYER_ID 1
 
 / {
     keymap {
@@ -38,8 +38,8 @@
 / {
     combos {
       compatible = "zmk,combos";
-      combo_enter  { timeout-ms = <COMBO_TIMEOUT>; key-positions = <KEY_A KEY_E>; bindings = <&kp ENTER>; };
       combo_symbol { timeout-ms = <COMBO_TIMEOUT>; key-positions = <KEY_A KEY_T>; bindings = <&sl SYMBOL_LAYER_ID>; };
+      combo_enter  { timeout-ms = <COMBO_TIMEOUT>; key-positions = <KEY_A KEY_E>; bindings = <&kp ENTER>; };
     };
 };
 
