@@ -69,7 +69,7 @@
     COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, shift,   BTN_MT BTN_RT BTN_PT BTN_IB, &sk LEFT_SHIFT)
 
     // Add shift toggle to base, symbol, and move layers
-    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID MOVE_LAYER_ID, shift_toggle, BTN_MT BTN_MB, &kt RIGHT_SHIFT)
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID MOVE_LAYER_ID, shift_toggle, BTN_PT BTN_PB, &kt RIGHT_SHIFT)
 
     // Base layer
     ////////////////////
@@ -105,9 +105,9 @@
     COMBO(BASE_LAYER_ID, backspace, BTN_MT BTN_IB,               &kp BACKSPACE)
     COMBO(BASE_LAYER_ID, delete,    BTN_MT BTN_RB,               &kp DELETE)
 
-    COMBO(BASE_LAYER_ID, layer_symbol,    BTN_IT BTN_RT, &sl SYMBOL_LAYER_ID)
-    COMBO(BASE_LAYER_ID, layer_move,      BTN_IT BTN_RT, &to MOVE_LAYER_ID)
-    COMBO(BASE_LAYER_ID, layer_bluetooth, BTN_RT BTN_RB, &sl BLUETOOTH_LAYER_ID)
+    COMBO(BASE_LAYER_ID, layer_symbol,    BTN_IT BTN_MT BTN_RT BTN_PT, &sl SYMBOL_LAYER_ID)
+    COMBO(BASE_LAYER_ID, layer_move,      BTN_MT BTN_MB,               &to MOVE_LAYER_ID)
+    COMBO(BASE_LAYER_ID, layer_bluetooth, BTN_RT BTN_RB,               &sl BLUETOOTH_LAYER_ID)
 
     // Symbol layer
     ////////////////////
