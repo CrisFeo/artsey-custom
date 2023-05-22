@@ -15,9 +15,9 @@
 #define COMBO(LAYERS, NAME, KEYS, BINDINGS) \
   combo_##NAME { \
     timeout-ms = <100>; \
-    layers = <LAYERS>; \
     key-positions = <KEYS>; \
     bindings = <BINDINGS>; \
+    layers = <LAYERS>; \
   };
 
 #define BASE_LAYER_ID 0
@@ -74,24 +74,24 @@
     // Base layer
     ////////////////////
 
-    COMBO(BASE_LAYER_ID, b, BTN_IB BTN_PB,        &kp b)
-    COMBO(BASE_LAYER_ID, c, BTN_IB BTN_MB,        &kp c)
-    COMBO(BASE_LAYER_ID, d, BTN_IT BTN_MT BTN_RT, &kp d)
-    COMBO(BASE_LAYER_ID, f, BTN_IT BTN_MT,        &kp f)
-    COMBO(BASE_LAYER_ID, g, BTN_MT BTN_RT,        &kp g)
-    COMBO(BASE_LAYER_ID, h, BTN_IB BTN_RB,        &kp h)
-    COMBO(BASE_LAYER_ID, j, BTN_RT BTN_PT,        &kp j)
-    COMBO(BASE_LAYER_ID, k, BTN_MB BTN_PB,        &kp k)
-    COMBO(BASE_LAYER_ID, l, BTN_IB BTN_MB BTN_RB, &kp l)
-    COMBO(BASE_LAYER_ID, m, BTN_MB BTN_RB BTN_PB, &kp m)
-    COMBO(BASE_LAYER_ID, n, BTN_RB BTN_PB,        &kp n)
-    COMBO(BASE_LAYER_ID, p, BTN_IB BTN_RB BTN_PB, &kp p)
-    COMBO(BASE_LAYER_ID, q, BTN_IT BTN_RT BTN_PT, &kp q)
-    COMBO(BASE_LAYER_ID, u, BTN_MB BTN_RB,        &kp u)
-    COMBO(BASE_LAYER_ID, v, BTN_MT BTN_PT,        &kp v)
-    COMBO(BASE_LAYER_ID, w, BTN_IT BTN_PT,        &kp w)
-    COMBO(BASE_LAYER_ID, x, BTN_MT BTN_RT BTN_PT, &kp x)
-    COMBO(BASE_LAYER_ID, z, BTN_IT BTN_PT,        &kp z)
+    COMBO(BASE_LAYER_ID, b, BTN_IB BTN_PB,        &kp B)
+    COMBO(BASE_LAYER_ID, c, BTN_IB BTN_MB,        &kp C)
+    COMBO(BASE_LAYER_ID, d, BTN_IT BTN_MT BTN_RT, &kp D)
+    COMBO(BASE_LAYER_ID, f, BTN_IT BTN_MT,        &kp F)
+    COMBO(BASE_LAYER_ID, g, BTN_MT BTN_RT,        &kp G)
+    COMBO(BASE_LAYER_ID, h, BTN_IB BTN_RB,        &kp H)
+    COMBO(BASE_LAYER_ID, j, BTN_RT BTN_PT,        &kp J)
+    COMBO(BASE_LAYER_ID, k, BTN_MB BTN_PB,        &kp K)
+    COMBO(BASE_LAYER_ID, l, BTN_IB BTN_MB BTN_RB, &kp L)
+    COMBO(BASE_LAYER_ID, m, BTN_MB BTN_RB BTN_PB, &kp M)
+    COMBO(BASE_LAYER_ID, n, BTN_RB BTN_PB,        &kp N)
+    COMBO(BASE_LAYER_ID, p, BTN_IB BTN_RB BTN_PB, &kp P)
+    COMBO(BASE_LAYER_ID, q, BTN_IT BTN_RT BTN_PT, &kp Q)
+    COMBO(BASE_LAYER_ID, u, BTN_MB BTN_RB,        &kp U)
+    COMBO(BASE_LAYER_ID, v, BTN_MT BTN_PT,        &kp V)
+    COMBO(BASE_LAYER_ID, w, BTN_IT BTN_PT,        &kp W)
+    COMBO(BASE_LAYER_ID, x, BTN_MT BTN_RT BTN_PT, &kp X)
+    COMBO(BASE_LAYER_ID, z, BTN_IT BTN_PT,        &kp Z)
 
     COMBO(BASE_LAYER_ID, apostrophe, BTN_IT BTN_MB BTN_RB, &kp APOSTROPHE)
     COMBO(BASE_LAYER_ID, period,     BTN_IT BTN_MB,        &kp PERIOD)
@@ -112,39 +112,39 @@
     // Symbol layer
     ////////////////////
 
-    COMBO(SYMBOL_LAYER_ID, 8, BTN_IT BTN_MT, &kp 8)
-    COMBO(SYMBOL_LAYER_ID, 9, BTN_IB BTN_MB, &kp 9)
+    COMBO(SYMBOL_LAYER_ID, 8, BTN_IT BTN_MT, &kp NUMBER_8)
+    COMBO(SYMBOL_LAYER_ID, 9, BTN_IB BTN_MB, &kp NUMBER_9)
 
-    COMBO(SYMBOL_LAYER_ID, plus,     BTN_IB BTN_RB BTN_PB,        &kp plus)
-    COMBO(SYMBOL_LAYER_ID, asterisk, BTN_IT BTN_RT BTN_PT,        &kp asterisk)
-    COMBO(SYMBOL_LAYER_ID, minus,    BTN_IB BTN_MB BTN_RB,        &kp minus)
-    COMBO(SYMBOL_LAYER_ID, equals,   BTN_MB BTN_RB BTN_PB,        &kp equals)
-    COMBO(SYMBOL_LAYER_ID, caret,    BTN_IT BTN_MT BTN_RT BTN_PT, &kp caret)
+    COMBO(SYMBOL_LAYER_ID, plus,     BTN_IB BTN_RB BTN_PB,        &kp PLUS)
+    COMBO(SYMBOL_LAYER_ID, asterisk, BTN_IT BTN_RT BTN_PT,        &kp ASTERISK)
+    COMBO(SYMBOL_LAYER_ID, minus,    BTN_IB BTN_MB BTN_RB,        &kp MINUS)
+    COMBO(SYMBOL_LAYER_ID, equal,    BTN_MB BTN_RB BTN_PB,        &kp EQUAL)
+    COMBO(SYMBOL_LAYER_ID, caret,    BTN_IT BTN_MT BTN_RT BTN_PT, &kp CARET)
 
-    COMBO(SYMBOL_LAYER_ID, left_parenthesis,     BTN_RT BTN_PT,        &kp left_parenthesis)
-    COMBO(SYMBOL_LAYER_ID, right_parenthesis,    BTN_MT BTN_RT,        &kp right_parenthesis)
-    COMBO(SYMBOL_LAYER_ID, left_curly_bracket,   BTN_RB BTN_PB,        &kp left_curly_bracket)
-    COMBO(SYMBOL_LAYER_ID, right_curly_bracket,  BTN_PB BTN_MB,        &kp right_curly_bracket)
-    COMBO(SYMBOL_LAYER_ID, left_square_bracket,  BTN_MT BTN_PT,        &kp left_square_bracket)
-    COMBO(SYMBOL_LAYER_ID, right_square_bracket, BTN_IT BTN_RT,        &kp right_square_bracket)
-    COMBO(SYMBOL_LAYER_ID, left_angle_bracket,   BTN_MB BTN_PB,        &kp left_angle_bracket)
-    COMBO(SYMBOL_LAYER_ID, right_angle_bracket,  BTN_IB BTN_RB,        &kp right_angle_bracket)
-    COMBO(SYMBOL_LAYER_ID, forward_slash,        BTN_IT BTN_MT BTN_RT, &kp forward_slash)
-    COMBO(SYMBOL_LAYER_ID, backward_slash,       BTN_MT BTN_RT BTN_PT, &kp backward_slash)
+    COMBO(SYMBOL_LAYER_ID, left_parenthesis,     BTN_RT BTN_PT,        &kp LEFT_PARENTHESIS)
+    COMBO(SYMBOL_LAYER_ID, right_parenthesis,    BTN_MT BTN_RT,        &kp RIGHT_PARENTHESIS)
+    COMBO(SYMBOL_LAYER_ID, left_curly_bracket,   BTN_RB BTN_PB,        &kp LEFT_BRACE)
+    COMBO(SYMBOL_LAYER_ID, right_curly_bracket,  BTN_PB BTN_MB,        &kp RIGHT_BRACE)
+    COMBO(SYMBOL_LAYER_ID, left_square_bracket,  BTN_MT BTN_PT,        &kp LEFT_BRACKET)
+    COMBO(SYMBOL_LAYER_ID, right_square_bracket, BTN_IT BTN_RT,        &kp RIGHT_BRACKET)
+    COMBO(SYMBOL_LAYER_ID, left_angle_bracket,   BTN_MB BTN_PB,        &kp LESS_THAN)
+    COMBO(SYMBOL_LAYER_ID, right_angle_bracket,  BTN_IB BTN_RB,        &kp GREATER_THAN)
+    COMBO(SYMBOL_LAYER_ID, forward_slash,        BTN_IT BTN_MT BTN_RT, &kp SLASH)
+    COMBO(SYMBOL_LAYER_ID, backward_slash,       BTN_MT BTN_RT BTN_PT, &kp BACKSLASH)
 
-    COMBO(SYMBOL_LAYER_ID, vertical_bar, BTN_IB BTN_PB,               &kp vertical_bar)
-    COMBO(SYMBOL_LAYER_ID, quote,        BTN_IT BTN_MB BTN_RB,        &kp quote)
-    COMBO(SYMBOL_LAYER_ID, comma,        BTN_IT BTN_MB,               &kp comma)
-    COMBO(SYMBOL_LAYER_ID, semicolon,    BTN_IT BTN_RB,               &kp semicolon)
-    COMBO(SYMBOL_LAYER_ID, exclamation,  BTN_IT BTN_PB,               &kp exclamation)
-    COMBO(SYMBOL_LAYER_ID, grave,        BTN_IT BTN_MT BTN_RT BTN_PB, &kp grave)
-    COMBO(SYMBOL_LAYER_ID, tilde,        BTN_RT BTN_RB,               &kp tilde)
-    COMBO(SYMBOL_LAYER_ID, at,           BTN_IT BTN_MT BTN_PB,        &kp at)
-    COMBO(SYMBOL_LAYER_ID, pound,        BTN_IT BTN_IB,               &kp pound)
-    COMBO(SYMBOL_LAYER_ID, dollar,       BTN_MT BTN_IB,               &kp dollar)
-    COMBO(SYMBOL_LAYER_ID, percent,      BTN_MT BTN_RB,               &kp percent)
-    COMBO(SYMBOL_LAYER_ID, ampersand,    BTN_IT BTN_PT,               &kp ampersand)
-    COMBO(SYMBOL_LAYER_ID, underscore,   BTN_IB BTN_MB BTN_RB BTN_PB, &kp underscore)
+    COMBO(SYMBOL_LAYER_ID, pipe,        BTN_IB BTN_PB,               &kp PIPE)
+    COMBO(SYMBOL_LAYER_ID, quote,       BTN_IT BTN_MB BTN_RB,        &kp DOUBLE_QUOTE)
+    COMBO(SYMBOL_LAYER_ID, comma,       BTN_IT BTN_MB,               &kp COMMA)
+    COMBO(SYMBOL_LAYER_ID, semicolon,   BTN_IT BTN_RB,               &kp SEMICOLON)
+    COMBO(SYMBOL_LAYER_ID, exclamation, BTN_IT BTN_PB,               &kp EXCLAMATION)
+    COMBO(SYMBOL_LAYER_ID, grave,       BTN_IT BTN_MT BTN_RT BTN_PB, &kp GRAVE)
+    COMBO(SYMBOL_LAYER_ID, tilde,       BTN_RT BTN_RB,               &kp TILDE)
+    COMBO(SYMBOL_LAYER_ID, at_sign,     BTN_IT BTN_MT BTN_PB,        &kp AT_SIGN)
+    COMBO(SYMBOL_LAYER_ID, pound,       BTN_IT BTN_IB,               &kp POUND)
+    COMBO(SYMBOL_LAYER_ID, dollar,      BTN_MT BTN_IB,               &kp DOLLAR)
+    COMBO(SYMBOL_LAYER_ID, percent,     BTN_MT BTN_RB,               &kp PERCENT)
+    COMBO(SYMBOL_LAYER_ID, ampersand,   BTN_IT BTN_PT,               &kp AMPERSAND)
+    COMBO(SYMBOL_LAYER_ID, underscore,  BTN_IB BTN_MB BTN_RB BTN_PB, &kp UNDERSCORE)
 
     // Move layer
     ////////////////////
