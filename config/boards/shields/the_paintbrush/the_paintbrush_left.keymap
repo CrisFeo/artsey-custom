@@ -156,22 +156,22 @@
     // Move layer
     ////////////////////
 
-    COMBO(MOVE_LAYER_ID, page_down, BTN_MB BTN_RB, &kp PAGE_DOWN)
-    COMBO(MOVE_LAYER_ID, page_up,   BTN_MT BTN_RT, &kp PAGE_UP)
-    COMBO(MOVE_LAYER_ID, home,      BTN_RB BTN_PB, &kp HOME)
-    COMBO(MOVE_LAYER_ID, end,       BTN_IB BTN_MB, &kp END)
+    COMBO(MOVE_LAYER_ID, move_page_down, BTN_MB BTN_RB, &kp PAGE_DOWN)
+    COMBO(MOVE_LAYER_ID, move_page_up,   BTN_MT BTN_RT, &kp PAGE_UP)
+    COMBO(MOVE_LAYER_ID, move_home,      BTN_RB BTN_PB, &kp HOME)
+    COMBO(MOVE_LAYER_ID, move_end,       BTN_IB BTN_MB, &kp END)
 
-    COMBO(MOVE_LAYER_ID, layer_select, BTN_IB BTN_MB BTN_RB BTN_PB, &to SELECT_LAYER_ID)
+    COMBO(MOVE_LAYER_ID, move_layer_select, BTN_IB BTN_MB BTN_RB BTN_PB, &to SELECT_LAYER_ID)
 
     // Select layer
     ////////////////////
 
-    COMBO(SELECT_LAYER_ID, page_down, BTN_MB BTN_RB, &kp LS(PAGE_DOWN))
-    COMBO(SELECT_LAYER_ID, page_up,   BTN_MT BTN_RT, &kp LS(PAGE_UP))
-    COMBO(SELECT_LAYER_ID, home,      BTN_RB BTN_PB, &kp LS(HOME))
-    COMBO(SELECT_LAYER_ID, end,       BTN_IB BTN_MB, &kp LS(END))
+    COMBO(SELECT_LAYER_ID, select_page_down, BTN_MB BTN_RB, &kp LS(PAGE_DOWN))
+    COMBO(SELECT_LAYER_ID, select_page_up,   BTN_MT BTN_RT, &kp LS(PAGE_UP))
+    COMBO(SELECT_LAYER_ID, select_home,      BTN_RB BTN_PB, &kp LS(HOME))
+    COMBO(SELECT_LAYER_ID, select_end,       BTN_IB BTN_MB, &kp LS(END))
 
-    COMBO(SELECT_LAYER_ID, layer_move_return, BTN_IB BTN_MB BTN_RB BTN_PB, &to MOVE_LAYER_ID)
+    COMBO(SELECT_LAYER_ID, select_layer_move, BTN_IB BTN_MB BTN_RB BTN_PB, &to MOVE_LAYER_ID)
 
     // Bluetooth layer
     ////////////////////
