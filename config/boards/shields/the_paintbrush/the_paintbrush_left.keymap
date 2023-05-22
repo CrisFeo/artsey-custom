@@ -14,7 +14,7 @@
 
 #define COMBO(LAYERS, NAME, KEYS, BINDINGS) \
   combo_##NAME { \
-    timeout-ms = 100; \
+    timeout-ms = <100>; \
     layers = <LAYERS>; \
     key-positions = <KEYS>; \
     bindings = <BINDINGS>; \
@@ -63,6 +63,15 @@
       // Return to base layer from everywhere
       COMBO(SYMBOL_LAYER_ID MOVE_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, KEY_E KEY_T, &to BASE_LAYER_ID)
 
+      // Add modifiers to base and symbol layers
+      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, control, KEY_S KEY_E,             &sk LEFT_CONTROL)
+      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, gui,     KEY_S KEY_Y,             &sk LEFT_GUI)
+      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, alt,     KEY_S KEY_I,             &sk LEFT_ALT)
+      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, shift,   KEY_R KEY_T KEY_S KEY_E, &sk LEFT_SHIFT)
+
+      // Add shift toggle to base, symbol, and move layers
+      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID MOVE_LAYER_ID, shift_toggle, KEY_R KEY_Y, &kt RIGHT_SHIFT)
+
       // Base layer
       ////////////////////
 
@@ -97,11 +106,6 @@
       COMBO(BASE_LAYER_ID, backspace, KEY_R KEY_E,             &kp BACKSPACE)
       COMBO(BASE_LAYER_ID, delete,    KEY_R KEY_I,             &kp DELETE)
 
-      COMBO(BASE_LAYER_ID, control, KEY_S KEY_E,             &sk LEFT_CONTROL)
-      COMBO(BASE_LAYER_ID, gui,     KEY_S KEY_Y,             &sk LEFT_GUI)
-      COMBO(BASE_LAYER_ID, alt,     KEY_S KEY_I,             &sk LEFT_ALT)
-      COMBO(BASE_LAYER_ID, shift,   KEY_R KEY_T KEY_S KEY_E, &sk LEFT_SHIFT)
-
       COMBO(BASE_LAYER_ID, layer_symbol,    KEY_A KEY_T, &sl SYMBOL_LAYER_ID)
       COMBO(BASE_LAYER_ID, layer_move,      KEY_A KEY_T, &to MOVE_LAYER_ID)
       COMBO(BASE_LAYER_ID, layer_bluetooth, KEY_T KEY_I, &sl BLUETOOTH_LAYER_ID)
@@ -109,7 +113,39 @@
       // Symbol layer
       ////////////////////
 
-      // TODO
+      COMBO(SYMBOL_LAYER_ID, 8, KEY_A KEY_R, &kp 8)
+      COMBO(SYMBOL_LAYER_ID, 9, KEY_E KEY_Y, &kp 9)
+
+      COMBO(SYMBOL_LAYER_ID, plus,     KEY_E KEY_I KEY_O,       &kp plus)
+      COMBO(SYMBOL_LAYER_ID, asterisk, KEY_A KEY_T KEY_S,       &kp asterisk)
+      COMBO(SYMBOL_LAYER_ID, minus,    KEY_E KEY_Y KEY_I,       &kp minus)
+      COMBO(SYMBOL_LAYER_ID, equals,   KEY_Y KEY_I KEY_O,       &kp equals)
+      COMBO(SYMBOL_LAYER_ID, caret,    KEY_A KEY_R KEY_T KEY_S, &kp caret)
+
+      COMBO(SYMBOL_LAYER_ID, left_parenthesis,     KEY_T KEY_S,       &kp left_parenthesis)
+      COMBO(SYMBOL_LAYER_ID, right_parenthesis,    KEY_R KEY_T,       &kp right_parenthesis)
+      COMBO(SYMBOL_LAYER_ID, left_curly_bracket,   KEY_I KEY_O,       &kp left_curly_bracket)
+      COMBO(SYMBOL_LAYER_ID, right_curly_bracket,  KEY_O KEY_Y,       &kp right_curly_bracket)
+      COMBO(SYMBOL_LAYER_ID, left_square_bracket,  KEY_R KEY_S,       &kp left_square_bracket)
+      COMBO(SYMBOL_LAYER_ID, right_square_bracket, KEY_A KEY_T,       &kp right_square_bracket)
+      COMBO(SYMBOL_LAYER_ID, left_angle_bracket,   KEY_Y KEY_O,       &kp left_angle_bracket)
+      COMBO(SYMBOL_LAYER_ID, right_angle_bracket,  KEY_E KEY_I,       &kp right_angle_bracket)
+      COMBO(SYMBOL_LAYER_ID, forward_slash,        KEY_A KEY_R KEY_T, &kp forward_slash)
+      COMBO(SYMBOL_LAYER_ID, backward_slash,       KEY_R KEY_T KEY_S, &kp backward_slash)
+
+      COMBO(SYMBOL_LAYER_ID, vertical_bar, KEY_E KEY_O,             &kp vertical_bar)
+      COMBO(SYMBOL_LAYER_ID, quote,        KEY_A KEY_Y KEY_I,       &kp quote)
+      COMBO(SYMBOL_LAYER_ID, comma,        KEY_A KEY_Y,             &kp comma)
+      COMBO(SYMBOL_LAYER_ID, semicolon,    KEY_A KEY_I,             &kp semicolon)
+      COMBO(SYMBOL_LAYER_ID, exclamation,  KEY_A KEY_O,             &kp exclamation)
+      COMBO(SYMBOL_LAYER_ID, grave,        KEY_A KEY_R KEY_T KEY_O, &kp grave)
+      COMBO(SYMBOL_LAYER_ID, tilde,        KEY_T KEY_I,             &kp tilde)
+      COMBO(SYMBOL_LAYER_ID, at,           KEY_A KEY_R KEY_O,       &kp at)
+      COMBO(SYMBOL_LAYER_ID, pound,        KEY_A KEY_E,             &kp pound)
+      COMBO(SYMBOL_LAYER_ID, dollar,       KEY_R KEY_E,             &kp dollar)
+      COMBO(SYMBOL_LAYER_ID, percent,      KEY_R KEY_I,             &kp percent)
+      COMBO(SYMBOL_LAYER_ID, ampersand,    KEY_A KEY_S,             &kp ampersand)
+      COMBO(SYMBOL_LAYER_ID, underscore,   KEY_E KEY_Y KEY_I KEY_O, &kp underscore)
 
       // Move layer
       ////////////////////
@@ -118,7 +154,6 @@
       COMBO(MOVE_LAYER_ID, page_up,      KEY_R KEY_T,             &kp PAGE_UP)
       COMBO(MOVE_LAYER_ID, home,         KEY_I KEY_O,             &kp HOME)
       COMBO(MOVE_LAYER_ID, end,          KEY_E KEY_Y,             &kp END)
-      COMBO(MOVE_LAYER_ID, shift_toggle, KEY_R KEY_T KEY_S KEY_E, &kt LEFT_SHIFT)
 
       // Bluetooth layer
       ////////////////////
