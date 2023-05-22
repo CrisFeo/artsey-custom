@@ -20,6 +20,14 @@
     layers = <LAYERS>; \
   };
 
+&sk {
+  release-after-ms = <10000>;
+};
+
+&sl {
+  release-after-ms = <10000>;
+};
+
 #define BASE_LAYER_ID 0
 #define SYMBOL_LAYER_ID 1
 #define MOVE_LAYER_ID 2
