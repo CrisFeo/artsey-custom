@@ -14,7 +14,7 @@
 
 #define COMBO(LAYERS, NAME, KEYS, BINDINGS) \
   combo_##NAME { \
-    timeout-ms = <100>; \
+    timeout-ms = <130>; \
     key-positions = <KEYS>; \
     bindings = <BINDINGS>; \
     layers = <LAYERS>; \
@@ -74,8 +74,8 @@
   combos {
     compatible = "zmk,combos";
 
-    // Return to base layer from symbol, move, and bluetooth layers
-    COMBO(SYMBOL_LAYER_ID MOVE_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, BTN_IB BTN_RT, &to BASE_LAYER_ID)
+    // Return to base layer from symbol, move, select, and bluetooth layers
+    COMBO(SYMBOL_LAYER_ID MOVE_LAYER_ID SELECT_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, BTN_IB BTN_RT, &to BASE_LAYER_ID)
 
     // Add modifiers to base and symbol layers
     COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, control, BTN_PT BTN_IB,               &sk LEFT_CONTROL)
@@ -139,7 +139,7 @@
     COMBO(SYMBOL_LAYER_ID, left_parenthesis,     BTN_RT BTN_PT,        &kp LEFT_PARENTHESIS)
     COMBO(SYMBOL_LAYER_ID, right_parenthesis,    BTN_MT BTN_RT,        &kp RIGHT_PARENTHESIS)
     COMBO(SYMBOL_LAYER_ID, left_curly_bracket,   BTN_RB BTN_PB,        &kp LEFT_BRACE)
-    COMBO(SYMBOL_LAYER_ID, right_curly_bracket,  BTN_PB BTN_MB,        &kp RIGHT_BRACE)
+    COMBO(SYMBOL_LAYER_ID, right_curly_bracket,  BTN_RB BTN_MB,        &kp RIGHT_BRACE)
     COMBO(SYMBOL_LAYER_ID, left_square_bracket,  BTN_MT BTN_PT,        &kp LEFT_BRACKET)
     COMBO(SYMBOL_LAYER_ID, right_square_bracket, BTN_IT BTN_RT,        &kp RIGHT_BRACKET)
     COMBO(SYMBOL_LAYER_ID, left_angle_bracket,   BTN_MB BTN_PB,        &kp LESS_THAN)
