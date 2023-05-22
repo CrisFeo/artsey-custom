@@ -76,7 +76,7 @@
     COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, shift,   BTN_MT BTN_RT BTN_PT BTN_IB, &sk LEFT_SHIFT)
 
     // Add shift toggle to base and symbol layers
-    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID  shift_toggle, BTN_PT BTN_PB, &kt LEFT_SHIFT)
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID,  shift_toggle, BTN_PT BTN_PB, &kt LEFT_SHIFT)
 
     // Base layer
     ////////////////////
