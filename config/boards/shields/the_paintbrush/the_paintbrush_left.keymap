@@ -39,13 +39,13 @@
                 &kp LC(LEFT_ARROW) &kp LC(DOWN_ARROW) &kp LC(UP_ARROW) &kp LC(RIGHT_ARROW)
                 &kp LEFT_ARROW     &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW
             >;
-        }
+        };
         bluetooth_layer {
             bindings = <
                 &none        &none        &none        &none
                 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0
             >;
-        }
+        };
 
     };
 };
