@@ -38,8 +38,8 @@
 / {
     combos {
       compatible = "zmk,combos";
-      combo_symbol { timeout-ms = <COMBO_TIMEOUT>; key-positions = <KEY_A KEY_T>; bindings = <&sl SYMBOL_LAYER_ID>; };
       combo_enter  { timeout-ms = <COMBO_TIMEOUT>; key-positions = <KEY_A KEY_E>; bindings = <&kp ENTER>; };
+      combo_symbol { timeout-ms = <COMBO_TIMEOUT>; key-positions = <KEY_A KEY_T>; bindings = <&sl SYMBOL_LAYER_ID>; };
     };
 };
 
