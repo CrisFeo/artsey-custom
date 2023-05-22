@@ -12,7 +12,13 @@
 #define KEY_I 5
 #define KEY_O 4
 
-#define COMBO_TIMEOUT 100
+#define COMBO(LAYERS, NAME, KEYS, BINDINGS) \
+  combo_##NAME { \
+    timeout-ms = 100; \
+    layers = <LAYERS>; \
+    key-positions = <KEYS>; \
+    bindings = <BINDINGS>; \
+  };
 
 #define BASE_LAYER_ID 0
 #define SYMBOL_LAYER_ID 1
@@ -49,14 +55,6 @@
 
     };
 };
-
-#define COMBO(LAYERS, NAME, KEYS, BINDINGS) \
-  combo_##NAME { \
-    timeout-ms = <COMBO_TIMEOUT>; \
-    layers = <LAYERS>; \
-    key-positions = <KEYS>; \
-    bindings = <BINDINGS>; \
-  };
 
 / {
     combos {
