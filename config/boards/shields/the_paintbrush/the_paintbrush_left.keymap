@@ -14,7 +14,7 @@
 
 #define COMBO(LAYERS, NAME, KEYS, BINDINGS) \
   combo_##NAME { \
-    timeout-ms = <100>; \
+    timeout-ms = <150>; \
     key-positions = <KEYS>; \
     bindings = <BINDINGS>; \
     layers = <LAYERS>; \
@@ -91,7 +91,7 @@
     COMBO(BASE_LAYER_ID, v, BTN_MT BTN_PT,        &kp V)
     COMBO(BASE_LAYER_ID, w, BTN_IT BTN_PT,        &kp W)
     COMBO(BASE_LAYER_ID, x, BTN_MT BTN_RT BTN_PT, &kp X)
-    COMBO(BASE_LAYER_ID, z, BTN_IT BTN_PT,        &kp Z)
+    COMBO(BASE_LAYER_ID, z, BTN_IT BTN_RT,        &kp Z)
 
     COMBO(BASE_LAYER_ID, apostrophe, BTN_IT BTN_MB BTN_RB, &kp APOSTROPHE)
     COMBO(BASE_LAYER_ID, period,     BTN_IT BTN_MB,        &kp PERIOD)
