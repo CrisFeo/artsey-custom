@@ -23,27 +23,34 @@
 #define BASE_LAYER_ID 0
 #define SYMBOL_LAYER_ID 1
 #define MOVE_LAYER_ID 2
-#define BLUETOOTH_LAYER_ID 3
+#define SELECT_LAYER_ID 3
+#define BLUETOOTH_LAYER_ID 4
 
 / {
   keymap {
     compatible = "zmk,keymap";
     base_layer {
       bindings = <
-        &kp S   &kp T   &kp R   &kp A
-        &kp O   &kp I   &kp Y   &kp E
+        &kp S  &kp T  &kp R  &kp A
+        &kp O  &kp I  &kp Y  &kp E
       >;
     };
     symbol_layer {
       bindings = <
-        &kp NUMBER_3   &kp NUMBER_2   &kp NUMBER_1   &kp NUMBER_0
-        &kp NUMBER_7   &kp NUMBER_6   &kp NUMBER_5   &kp NUMBER_4
+        &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp NUMBER_0
+        &kp NUMBER_7  &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4
       >;
     };
     move_layer {
       bindings = <
-        &kp LC(LEFT_ARROW)   &kp LC(DOWN_ARROW)   &kp LC(UP_ARROW)   &kp LC(RIGHT_ARROW)
-        &kp LEFT_ARROW       &kp DOWN_ARROW       &kp UP_ARROW       &kp RIGHT_ARROW
+        &kp LC(LEFT_ARROW)  &kp LC(UP_ARROW)  &kp LC(DOWN_ARROW)  &kp LC(RIGHT_ARROW)
+        &kp LEFT_ARROW      &kp UP_ARROW      &kp DOWN_ARROW      &kp RIGHT_ARROW
+      >;
+    };
+    select_layer {
+      bindings = <
+        &kp LS(LC(LEFT_ARROW))  &kp LS(LC(UP_ARROW))  &kp LS(LC(DOWN_ARROW))  &kp LS(LC(RIGHT_ARROW))
+        &kp LS(LEFT_ARROW)      &kp LS(UP_ARROW)      &kp LS(DOWN_ARROW)      &kp LS(RIGHT_ARROW)
       >;
     };
     bluetooth_layer {
@@ -59,7 +66,7 @@
   combos {
     compatible = "zmk,combos";
 
-    // Return to base layer from everywhere
+    // Return to base layer from symbol, move, and bluetooth layers
     COMBO(SYMBOL_LAYER_ID MOVE_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, BTN_IB BTN_RT, &to BASE_LAYER_ID)
 
     // Add modifiers to base and symbol layers
@@ -68,8 +75,8 @@
     COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, alt,     BTN_PT BTN_RB,               &sk LEFT_ALT)
     COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, shift,   BTN_MT BTN_RT BTN_PT BTN_IB, &sk LEFT_SHIFT)
 
-    // Add shift toggle to base, symbol, and move layers
-    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID MOVE_LAYER_ID, shift_toggle, BTN_PT BTN_PB, &kt RIGHT_SHIFT)
+    // Add shift toggle to base and symbol layers
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID  shift_toggle, BTN_PT BTN_PB, &kt LEFT_SHIFT)
 
     // Base layer
     ////////////////////
@@ -153,6 +160,18 @@
     COMBO(MOVE_LAYER_ID, page_up,   BTN_MT BTN_RT, &kp PAGE_UP)
     COMBO(MOVE_LAYER_ID, home,      BTN_RB BTN_PB, &kp HOME)
     COMBO(MOVE_LAYER_ID, end,       BTN_IB BTN_MB, &kp END)
+
+    COMBO(MOVE_LAYER_ID, layer_select, BTN_IB BTN_MB BTN_RB BTN_PB, &to SELECT_LAYER_ID)
+
+    // Select layer
+    ////////////////////
+
+    COMBO(SELECT_LAYER_ID, page_down, BTN_MB BTN_RB, &kp LS(PAGE_DOWN))
+    COMBO(SELECT_LAYER_ID, page_up,   BTN_MT BTN_RT, &kp LS(PAGE_UP))
+    COMBO(SELECT_LAYER_ID, home,      BTN_RB BTN_PB, &kp LS(HOME))
+    COMBO(SELECT_LAYER_ID, end,       BTN_IB BTN_MB, &kp LS(END))
+
+    COMBO(SELECT_LAYER_ID, layer_move_return, BTN_IB BTN_MB BTN_RB BTN_PB, &to MOVE_LAYER_ID)
 
     // Bluetooth layer
     ////////////////////
