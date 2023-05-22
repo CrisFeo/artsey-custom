@@ -16,6 +16,8 @@
 
 #define BASE_LAYER_ID 0
 #define SYMBOL_LAYER_ID 1
+#define MOVE_LAYER_ID 2
+#define BLUETOOTH_LAYER_ID 3
 
 / {
     keymap {
@@ -32,14 +34,92 @@
                 &kp NUMBER_7 &kp NUMBER_6 &kp NUMBER_5 &kp NUMBER_4
             >;
         };
+        move_layer {
+            bindings = <
+                &kp LC(LEFT_ARROW) &kp LC(DOWN_ARROW) &kp LC(UP_ARROW) &kp LC(RIGHT_ARROW)
+                &kp LEFT_ARROW     &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW
+            >;
+        }
+        bluetooth_layer {
+            bindings = <
+                &none        &none        &none        &none
+                &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0
+            >;
+        }
+
     };
 };
+
+#define COMBO(LAYERS, NAME, KEYS, BINDINGS) combo_NAME { timeout-ms = <COMBO_TIMEOUT>; layers=<LAYERS>; key-positions = <KEYS>; bindings = <BINDINGS>; };
 
 / {
     combos {
       compatible = "zmk,combos";
-      combo_symbol { timeout-ms = <COMBO_TIMEOUT>; key-positions = <KEY_A KEY_T>; bindings = <&sl SYMBOL_LAYER_ID>; };
-      combo_enter  { timeout-ms = <COMBO_TIMEOUT>; key-positions = <KEY_A KEY_E>; bindings = <&kp ENTER>; };
+
+      // Return to base layer from everywhere
+      COMBO(SYMBOL_LAYER_ID MOVE_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, KEY_E KEY_T, &to BASE_LAYER_ID)
+
+      // Base layer
+      ////////////////////
+
+      COMBO(BASE_LAYER_ID, b, KEY_E KEY_O,       &kp b)
+      COMBO(BASE_LAYER_ID, c, KEY_E KEY_Y,       &kp c)
+      COMBO(BASE_LAYER_ID, d, KEY_A KEY_R KEY_T, &kp d)
+      COMBO(BASE_LAYER_ID, f, KEY_A KEY_R,       &kp f)
+      COMBO(BASE_LAYER_ID, g, KEY_R KEY_T,       &kp g)
+      COMBO(BASE_LAYER_ID, h, KEY_E KEY_I,       &kp h)
+      COMBO(BASE_LAYER_ID, j, KEY_T KEY_S,       &kp j)
+      COMBO(BASE_LAYER_ID, k, KEY_Y KEY_O,       &kp k)
+      COMBO(BASE_LAYER_ID, l, KEY_E KEY_Y KEY_I, &kp l)
+      COMBO(BASE_LAYER_ID, m, KEY_Y KEY_I KEY_O, &kp m)
+      COMBO(BASE_LAYER_ID, n, KEY_I KEY_O,       &kp n)
+      COMBO(BASE_LAYER_ID, p, KEY_E KEY_I KEY_O, &kp p)
+      COMBO(BASE_LAYER_ID, q, KEY_A KEY_T KEY_S, &kp q)
+      COMBO(BASE_LAYER_ID, u, KEY_Y KEY_I,       &kp u)
+      COMBO(BASE_LAYER_ID, v, KEY_R KEY_S,       &kp v)
+      COMBO(BASE_LAYER_ID, w, KEY_A KEY_S,       &kp w)
+      COMBO(BASE_LAYER_ID, x, KEY_R KEY_T KEY_S, &kp x)
+      COMBO(BASE_LAYER_ID, z, KEY_A KEY_S,       &kp z)
+
+      COMBO(BASE_LAYER_ID, apostrophe, KEY_A KEY_Y KEY_I, &kp APOSTROPHE)
+      COMBO(BASE_LAYER_ID, period,     KEY_A KEY_Y,       &kp PERIOD)
+      COMBO(BASE_LAYER_ID, colon,      KEY_A KEY_I,       &kp COLON)
+      COMBO(BASE_LAYER_ID, question,   KEY_A KEY_O,       &kp QUESTION)
+
+      COMBO(BASE_LAYER_ID, space,     KEY_E KEY_Y KEY_I KEY_O, &kp SPACE)
+      COMBO(BASE_LAYER_ID, enter,     KEY_A KEY_E,             &kp ENTER)
+      COMBO(BASE_LAYER_ID, escape,    KEY_A KEY_R KEY_O,       &kp ESCAPE)
+      COMBO(BASE_LAYER_ID, tab,       KEY_A KEY_R KEY_T KEY_O, &kp TAB)
+      COMBO(BASE_LAYER_ID, backspace, KEY_R KEY_E,             &kp BACKSPACE)
+      COMBO(BASE_LAYER_ID, delete,    KEY_R KEY_I,             &kp DELETE)
+
+      COMBO(BASE_LAYER_ID, control, KEY_S KEY_E,             &sk LEFT_CONTROL)
+      COMBO(BASE_LAYER_ID, gui,     KEY_S KEY_Y,             &sk LEFT_GUI)
+      COMBO(BASE_LAYER_ID, alt,     KEY_S KEY_I,             &sk LEFT_ALT)
+      COMBO(BASE_LAYER_ID, shift,   KEY_R KEY_T KEY_S KEY_E, &sk LEFT_SHIFT)
+
+      COMBO(BASE_LAYER_ID, layer_symbol,    KEY_A KEY_T, &sl SYMBOL_LAYER_ID)
+      COMBO(BASE_LAYER_ID, layer_move,      KEY_A KEY_T, &to MOVE_LAYER_ID)
+      COMBO(BASE_LAYER_ID, layer_bluetooth, KEY_T KEY_I, &sl BLUETOOTH_LAYER_ID)
+
+      // Symbol layer
+      ////////////////////
+
+      // TODO
+
+      // Move layer
+      ////////////////////
+
+      COMBO(MOVE_LAYER_ID, page_down,    KEY_Y KEY_I,             &kp PAGE_DOWN)
+      COMBO(MOVE_LAYER_ID, page_up,      KEY_R KEY_T,             &kp PAGE_UP)
+      COMBO(MOVE_LAYER_ID, home,         KEY_I KEY_O,             &kp HOME)
+      COMBO(MOVE_LAYER_ID, end,          KEY_E KEY_Y,             &kp END)
+      COMBO(MOVE_LAYER_ID, shift_toggle, KEY_R KEY_T KEY_S KEY_E, &kt LEFT_SHIFT)
+
+      // Bluetooth layer
+      ////////////////////
+
+      COMBO(BLUETOOTH_LAYER_ID, output_wire, KEY_A KEY_R KEY_T KEY_S, &bt BT_CLR)
+
     };
 };
-
