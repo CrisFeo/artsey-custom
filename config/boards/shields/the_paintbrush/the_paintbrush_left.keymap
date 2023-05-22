@@ -50,7 +50,7 @@
     };
 };
 
-#define COMBO(LAYERS, NAME, KEYS, BINDINGS) combo_NAME { timeout-ms = <COMBO_TIMEOUT>; layers=<LAYERS>; key-positions = <KEYS>; bindings = <BINDINGS>; };
+#define COMBO(LAYERS, NAME, KEYS, BINDINGS) combo_##NAME { timeout-ms = <COMBO_TIMEOUT>; layers = <LAYERS>; key-positions = <KEYS>; bindings = <BINDINGS>; };
 
 / {
     combos {
