@@ -2,15 +2,15 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define KEY_A 3
-#define KEY_R 2
-#define KEY_T 1
-#define KEY_S 0
+#define BTN_IT 3
+#define BTN_MT 2
+#define BTN_RT 1
+#define BTN_PT 0
 
-#define KEY_E 7
-#define KEY_Y 6
-#define KEY_I 5
-#define KEY_O 4
+#define BTN_IB 7
+#define BTN_MB 6
+#define BTN_RB 5
+#define BTN_PB 4
 
 #define COMBO(LAYERS, NAME, KEYS, BINDINGS) \
   combo_##NAME { \
@@ -26,139 +26,138 @@
 #define BLUETOOTH_LAYER_ID 3
 
 / {
-    keymap {
-        compatible = "zmk,keymap";
-        base_layer {
-            bindings = <
-                &kp S &kp T &kp R &kp A
-                &kp O &kp I &kp Y &kp E
-            >;
-        };
-        symbol_layer {
-            bindings = <
-                &kp NUMBER_3 &kp NUMBER_2 &kp NUMBER_1 &kp NUMBER_0
-                &kp NUMBER_7 &kp NUMBER_6 &kp NUMBER_5 &kp NUMBER_4
-            >;
-        };
-        move_layer {
-            bindings = <
-                &kp LC(LEFT_ARROW) &kp LC(DOWN_ARROW) &kp LC(UP_ARROW) &kp LC(RIGHT_ARROW)
-                &kp LEFT_ARROW     &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW
-            >;
-        };
-        bluetooth_layer {
-            bindings = <
-                &none        &none        &none        &none
-                &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0
-            >;
-        };
-
+  keymap {
+    compatible = "zmk,keymap";
+    base_layer {
+      bindings = <
+        &kp S &kp T &kp R &kp A
+        &kp O &kp I &kp Y &kp E
+      >;
     };
+    symbol_layer {
+      bindings = <
+        &kp NUMBER_3 &kp NUMBER_2 &kp NUMBER_1 &kp NUMBER_0
+        &kp NUMBER_7 &kp NUMBER_6 &kp NUMBER_5 &kp NUMBER_4
+      >;
+    };
+    move_layer {
+      bindings = <
+        &kp LC(LEFT_ARROW) &kp LC(DOWN_ARROW) &kp LC(UP_ARROW) &kp LC(RIGHT_ARROW)
+        &kp LEFT_ARROW     &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW
+      >;
+    };
+    bluetooth_layer {
+      bindings = <
+        &none        &none        &none        &none
+        &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0
+      >;
+    };
+  };
 };
 
 / {
-    combos {
-      compatible = "zmk,combos";
+  combos {
+    compatible = "zmk,combos";
 
-      // Return to base layer from everywhere
-      COMBO(SYMBOL_LAYER_ID MOVE_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, KEY_E KEY_T, &to BASE_LAYER_ID)
+    // Return to base layer from everywhere
+    COMBO(SYMBOL_LAYER_ID MOVE_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, BTN_IB BTN_RT, &to BASE_LAYER_ID)
 
-      // Add modifiers to base and symbol layers
-      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, control, KEY_S KEY_E,             &sk LEFT_CONTROL)
-      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, gui,     KEY_S KEY_Y,             &sk LEFT_GUI)
-      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, alt,     KEY_S KEY_I,             &sk LEFT_ALT)
-      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, shift,   KEY_R KEY_T KEY_S KEY_E, &sk LEFT_SHIFT)
+    // Add modifiers to base and symbol layers
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, control, BTN_PT BTN_IB,               &sk LEFT_CONTROL)
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, gui,     BTN_PT BTN_MB,               &sk LEFT_GUI)
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, alt,     BTN_PT BTN_RB,               &sk LEFT_ALT)
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, shift,   BTN_MT BTN_RT BTN_PT BTN_IB, &sk LEFT_SHIFT)
 
-      // Add shift toggle to base, symbol, and move layers
-      COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID MOVE_LAYER_ID, shift_toggle, KEY_R KEY_Y, &kt RIGHT_SHIFT)
+    // Add shift toggle to base, symbol, and move layers
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID MOVE_LAYER_ID, shift_toggle, BTN_MT BTN_MB, &kt RIGHT_SHIFT)
 
-      // Base layer
-      ////////////////////
+    // Base layer
+    ////////////////////
 
-      COMBO(BASE_LAYER_ID, b, KEY_E KEY_O,       &kp b)
-      COMBO(BASE_LAYER_ID, c, KEY_E KEY_Y,       &kp c)
-      COMBO(BASE_LAYER_ID, d, KEY_A KEY_R KEY_T, &kp d)
-      COMBO(BASE_LAYER_ID, f, KEY_A KEY_R,       &kp f)
-      COMBO(BASE_LAYER_ID, g, KEY_R KEY_T,       &kp g)
-      COMBO(BASE_LAYER_ID, h, KEY_E KEY_I,       &kp h)
-      COMBO(BASE_LAYER_ID, j, KEY_T KEY_S,       &kp j)
-      COMBO(BASE_LAYER_ID, k, KEY_Y KEY_O,       &kp k)
-      COMBO(BASE_LAYER_ID, l, KEY_E KEY_Y KEY_I, &kp l)
-      COMBO(BASE_LAYER_ID, m, KEY_Y KEY_I KEY_O, &kp m)
-      COMBO(BASE_LAYER_ID, n, KEY_I KEY_O,       &kp n)
-      COMBO(BASE_LAYER_ID, p, KEY_E KEY_I KEY_O, &kp p)
-      COMBO(BASE_LAYER_ID, q, KEY_A KEY_T KEY_S, &kp q)
-      COMBO(BASE_LAYER_ID, u, KEY_Y KEY_I,       &kp u)
-      COMBO(BASE_LAYER_ID, v, KEY_R KEY_S,       &kp v)
-      COMBO(BASE_LAYER_ID, w, KEY_A KEY_S,       &kp w)
-      COMBO(BASE_LAYER_ID, x, KEY_R KEY_T KEY_S, &kp x)
-      COMBO(BASE_LAYER_ID, z, KEY_A KEY_S,       &kp z)
+    COMBO(BASE_LAYER_ID, b, BTN_IB BTN_PB,        &kp b)
+    COMBO(BASE_LAYER_ID, c, BTN_IB BTN_MB,        &kp c)
+    COMBO(BASE_LAYER_ID, d, BTN_IT BTN_MT BTN_RT, &kp d)
+    COMBO(BASE_LAYER_ID, f, BTN_IT BTN_MT,        &kp f)
+    COMBO(BASE_LAYER_ID, g, BTN_MT BTN_RT,        &kp g)
+    COMBO(BASE_LAYER_ID, h, BTN_IB BTN_RB,        &kp h)
+    COMBO(BASE_LAYER_ID, j, BTN_RT BTN_PT,        &kp j)
+    COMBO(BASE_LAYER_ID, k, BTN_MB BTN_PB,        &kp k)
+    COMBO(BASE_LAYER_ID, l, BTN_IB BTN_MB BTN_RB, &kp l)
+    COMBO(BASE_LAYER_ID, m, BTN_MB BTN_RB BTN_PB, &kp m)
+    COMBO(BASE_LAYER_ID, n, BTN_RB BTN_PB,        &kp n)
+    COMBO(BASE_LAYER_ID, p, BTN_IB BTN_RB BTN_PB, &kp p)
+    COMBO(BASE_LAYER_ID, q, BTN_IT BTN_RT BTN_PT, &kp q)
+    COMBO(BASE_LAYER_ID, u, BTN_MB BTN_RB,        &kp u)
+    COMBO(BASE_LAYER_ID, v, BTN_MT BTN_PT,        &kp v)
+    COMBO(BASE_LAYER_ID, w, BTN_IT BTN_PT,        &kp w)
+    COMBO(BASE_LAYER_ID, x, BTN_MT BTN_RT BTN_PT, &kp x)
+    COMBO(BASE_LAYER_ID, z, BTN_IT BTN_PT,        &kp z)
 
-      COMBO(BASE_LAYER_ID, apostrophe, KEY_A KEY_Y KEY_I, &kp APOSTROPHE)
-      COMBO(BASE_LAYER_ID, period,     KEY_A KEY_Y,       &kp PERIOD)
-      COMBO(BASE_LAYER_ID, colon,      KEY_A KEY_I,       &kp COLON)
-      COMBO(BASE_LAYER_ID, question,   KEY_A KEY_O,       &kp QUESTION)
+    COMBO(BASE_LAYER_ID, apostrophe, BTN_IT BTN_MB BTN_RB, &kp APOSTROPHE)
+    COMBO(BASE_LAYER_ID, period,     BTN_IT BTN_MB,        &kp PERIOD)
+    COMBO(BASE_LAYER_ID, colon,      BTN_IT BTN_RB,        &kp COLON)
+    COMBO(BASE_LAYER_ID, question,   BTN_IT BTN_PB,        &kp QUESTION)
 
-      COMBO(BASE_LAYER_ID, space,     KEY_E KEY_Y KEY_I KEY_O, &kp SPACE)
-      COMBO(BASE_LAYER_ID, enter,     KEY_A KEY_E,             &kp ENTER)
-      COMBO(BASE_LAYER_ID, escape,    KEY_A KEY_R KEY_O,       &kp ESCAPE)
-      COMBO(BASE_LAYER_ID, tab,       KEY_A KEY_R KEY_T KEY_O, &kp TAB)
-      COMBO(BASE_LAYER_ID, backspace, KEY_R KEY_E,             &kp BACKSPACE)
-      COMBO(BASE_LAYER_ID, delete,    KEY_R KEY_I,             &kp DELETE)
+    COMBO(BASE_LAYER_ID, space,     BTN_IB BTN_MB BTN_RB BTN_PB, &kp SPACE)
+    COMBO(BASE_LAYER_ID, enter,     BTN_IT BTN_IB,               &kp ENTER)
+    COMBO(BASE_LAYER_ID, escape,    BTN_IT BTN_MT BTN_PB,        &kp ESCAPE)
+    COMBO(BASE_LAYER_ID, tab,       BTN_IT BTN_MT BTN_RT BTN_PB, &kp TAB)
+    COMBO(BASE_LAYER_ID, backspace, BTN_MT BTN_IB,               &kp BACKSPACE)
+    COMBO(BASE_LAYER_ID, delete,    BTN_MT BTN_RB,               &kp DELETE)
 
-      COMBO(BASE_LAYER_ID, layer_symbol,    KEY_A KEY_T, &sl SYMBOL_LAYER_ID)
-      COMBO(BASE_LAYER_ID, layer_move,      KEY_A KEY_T, &to MOVE_LAYER_ID)
-      COMBO(BASE_LAYER_ID, layer_bluetooth, KEY_T KEY_I, &sl BLUETOOTH_LAYER_ID)
+    COMBO(BASE_LAYER_ID, layer_symbol,    BTN_IT BTN_RT, &sl SYMBOL_LAYER_ID)
+    COMBO(BASE_LAYER_ID, layer_move,      BTN_IT BTN_RT, &to MOVE_LAYER_ID)
+    COMBO(BASE_LAYER_ID, layer_bluetooth, BTN_RT BTN_RB, &sl BLUETOOTH_LAYER_ID)
 
-      // Symbol layer
-      ////////////////////
+    // Symbol layer
+    ////////////////////
 
-      COMBO(SYMBOL_LAYER_ID, 8, KEY_A KEY_R, &kp 8)
-      COMBO(SYMBOL_LAYER_ID, 9, KEY_E KEY_Y, &kp 9)
+    COMBO(SYMBOL_LAYER_ID, 8, BTN_IT BTN_MT, &kp 8)
+    COMBO(SYMBOL_LAYER_ID, 9, BTN_IB BTN_MB, &kp 9)
 
-      COMBO(SYMBOL_LAYER_ID, plus,     KEY_E KEY_I KEY_O,       &kp plus)
-      COMBO(SYMBOL_LAYER_ID, asterisk, KEY_A KEY_T KEY_S,       &kp asterisk)
-      COMBO(SYMBOL_LAYER_ID, minus,    KEY_E KEY_Y KEY_I,       &kp minus)
-      COMBO(SYMBOL_LAYER_ID, equals,   KEY_Y KEY_I KEY_O,       &kp equals)
-      COMBO(SYMBOL_LAYER_ID, caret,    KEY_A KEY_R KEY_T KEY_S, &kp caret)
+    COMBO(SYMBOL_LAYER_ID, plus,     BTN_IB BTN_RB BTN_PB,        &kp plus)
+    COMBO(SYMBOL_LAYER_ID, asterisk, BTN_IT BTN_RT BTN_PT,        &kp asterisk)
+    COMBO(SYMBOL_LAYER_ID, minus,    BTN_IB BTN_MB BTN_RB,        &kp minus)
+    COMBO(SYMBOL_LAYER_ID, equals,   BTN_MB BTN_RB BTN_PB,        &kp equals)
+    COMBO(SYMBOL_LAYER_ID, caret,    BTN_IT BTN_MT BTN_RT BTN_PT, &kp caret)
 
-      COMBO(SYMBOL_LAYER_ID, left_parenthesis,     KEY_T KEY_S,       &kp left_parenthesis)
-      COMBO(SYMBOL_LAYER_ID, right_parenthesis,    KEY_R KEY_T,       &kp right_parenthesis)
-      COMBO(SYMBOL_LAYER_ID, left_curly_bracket,   KEY_I KEY_O,       &kp left_curly_bracket)
-      COMBO(SYMBOL_LAYER_ID, right_curly_bracket,  KEY_O KEY_Y,       &kp right_curly_bracket)
-      COMBO(SYMBOL_LAYER_ID, left_square_bracket,  KEY_R KEY_S,       &kp left_square_bracket)
-      COMBO(SYMBOL_LAYER_ID, right_square_bracket, KEY_A KEY_T,       &kp right_square_bracket)
-      COMBO(SYMBOL_LAYER_ID, left_angle_bracket,   KEY_Y KEY_O,       &kp left_angle_bracket)
-      COMBO(SYMBOL_LAYER_ID, right_angle_bracket,  KEY_E KEY_I,       &kp right_angle_bracket)
-      COMBO(SYMBOL_LAYER_ID, forward_slash,        KEY_A KEY_R KEY_T, &kp forward_slash)
-      COMBO(SYMBOL_LAYER_ID, backward_slash,       KEY_R KEY_T KEY_S, &kp backward_slash)
+    COMBO(SYMBOL_LAYER_ID, left_parenthesis,     BTN_RT BTN_PT,        &kp left_parenthesis)
+    COMBO(SYMBOL_LAYER_ID, right_parenthesis,    BTN_MT BTN_RT,        &kp right_parenthesis)
+    COMBO(SYMBOL_LAYER_ID, left_curly_bracket,   BTN_RB BTN_PB,        &kp left_curly_bracket)
+    COMBO(SYMBOL_LAYER_ID, right_curly_bracket,  BTN_PB BTN_MB,        &kp right_curly_bracket)
+    COMBO(SYMBOL_LAYER_ID, left_square_bracket,  BTN_MT BTN_PT,        &kp left_square_bracket)
+    COMBO(SYMBOL_LAYER_ID, right_square_bracket, BTN_IT BTN_RT,        &kp right_square_bracket)
+    COMBO(SYMBOL_LAYER_ID, left_angle_bracket,   BTN_MB BTN_PB,        &kp left_angle_bracket)
+    COMBO(SYMBOL_LAYER_ID, right_angle_bracket,  BTN_IB BTN_RB,        &kp right_angle_bracket)
+    COMBO(SYMBOL_LAYER_ID, forward_slash,        BTN_IT BTN_MT BTN_RT, &kp forward_slash)
+    COMBO(SYMBOL_LAYER_ID, backward_slash,       BTN_MT BTN_RT BTN_PT, &kp backward_slash)
 
-      COMBO(SYMBOL_LAYER_ID, vertical_bar, KEY_E KEY_O,             &kp vertical_bar)
-      COMBO(SYMBOL_LAYER_ID, quote,        KEY_A KEY_Y KEY_I,       &kp quote)
-      COMBO(SYMBOL_LAYER_ID, comma,        KEY_A KEY_Y,             &kp comma)
-      COMBO(SYMBOL_LAYER_ID, semicolon,    KEY_A KEY_I,             &kp semicolon)
-      COMBO(SYMBOL_LAYER_ID, exclamation,  KEY_A KEY_O,             &kp exclamation)
-      COMBO(SYMBOL_LAYER_ID, grave,        KEY_A KEY_R KEY_T KEY_O, &kp grave)
-      COMBO(SYMBOL_LAYER_ID, tilde,        KEY_T KEY_I,             &kp tilde)
-      COMBO(SYMBOL_LAYER_ID, at,           KEY_A KEY_R KEY_O,       &kp at)
-      COMBO(SYMBOL_LAYER_ID, pound,        KEY_A KEY_E,             &kp pound)
-      COMBO(SYMBOL_LAYER_ID, dollar,       KEY_R KEY_E,             &kp dollar)
-      COMBO(SYMBOL_LAYER_ID, percent,      KEY_R KEY_I,             &kp percent)
-      COMBO(SYMBOL_LAYER_ID, ampersand,    KEY_A KEY_S,             &kp ampersand)
-      COMBO(SYMBOL_LAYER_ID, underscore,   KEY_E KEY_Y KEY_I KEY_O, &kp underscore)
+    COMBO(SYMBOL_LAYER_ID, vertical_bar, BTN_IB BTN_PB,               &kp vertical_bar)
+    COMBO(SYMBOL_LAYER_ID, quote,        BTN_IT BTN_MB BTN_RB,        &kp quote)
+    COMBO(SYMBOL_LAYER_ID, comma,        BTN_IT BTN_MB,               &kp comma)
+    COMBO(SYMBOL_LAYER_ID, semicolon,    BTN_IT BTN_RB,               &kp semicolon)
+    COMBO(SYMBOL_LAYER_ID, exclamation,  BTN_IT BTN_PB,               &kp exclamation)
+    COMBO(SYMBOL_LAYER_ID, grave,        BTN_IT BTN_MT BTN_RT BTN_PB, &kp grave)
+    COMBO(SYMBOL_LAYER_ID, tilde,        BTN_RT BTN_RB,               &kp tilde)
+    COMBO(SYMBOL_LAYER_ID, at,           BTN_IT BTN_MT BTN_PB,        &kp at)
+    COMBO(SYMBOL_LAYER_ID, pound,        BTN_IT BTN_IB,               &kp pound)
+    COMBO(SYMBOL_LAYER_ID, dollar,       BTN_MT BTN_IB,               &kp dollar)
+    COMBO(SYMBOL_LAYER_ID, percent,      BTN_MT BTN_RB,               &kp percent)
+    COMBO(SYMBOL_LAYER_ID, ampersand,    BTN_IT BTN_PT,               &kp ampersand)
+    COMBO(SYMBOL_LAYER_ID, underscore,   BTN_IB BTN_MB BTN_RB BTN_PB, &kp underscore)
 
-      // Move layer
-      ////////////////////
+    // Move layer
+    ////////////////////
 
-      COMBO(MOVE_LAYER_ID, page_down,    KEY_Y KEY_I,             &kp PAGE_DOWN)
-      COMBO(MOVE_LAYER_ID, page_up,      KEY_R KEY_T,             &kp PAGE_UP)
-      COMBO(MOVE_LAYER_ID, home,         KEY_I KEY_O,             &kp HOME)
-      COMBO(MOVE_LAYER_ID, end,          KEY_E KEY_Y,             &kp END)
+    COMBO(MOVE_LAYER_ID, page_down, BTN_MB BTN_RB, &kp PAGE_DOWN)
+    COMBO(MOVE_LAYER_ID, page_up,   BTN_MT BTN_RT, &kp PAGE_UP)
+    COMBO(MOVE_LAYER_ID, home,      BTN_RB BTN_PB, &kp HOME)
+    COMBO(MOVE_LAYER_ID, end,       BTN_IB BTN_MB, &kp END)
 
-      // Bluetooth layer
-      ////////////////////
+    // Bluetooth layer
+    ////////////////////
 
-      COMBO(BLUETOOTH_LAYER_ID, output_wire, KEY_A KEY_R KEY_T KEY_S, &bt BT_CLR)
+    COMBO(BLUETOOTH_LAYER_ID, output_wire, BTN_IT BTN_MT BTN_RT BTN_PT, &bt BT_CLR)
 
-    };
+  };
 };
