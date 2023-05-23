@@ -74,8 +74,8 @@
   combos {
     compatible = "zmk,combos";
 
-    // Return to base layer from symbol, move, select, and bluetooth layers
-    COMBO(SYMBOL_LAYER_ID MOVE_LAYER_ID SELECT_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, BTN_PT BTN_PB, &to BASE_LAYER_ID)
+    // Return to base layer from all layers
+    COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID MOVE_LAYER_ID SELECT_LAYER_ID BLUETOOTH_LAYER_ID, layer_base, BTN_PT BTN_PB, &to BASE_LAYER_ID)
 
     // Add modifiers to base and symbol layers
     COMBO(BASE_LAYER_ID SYMBOL_LAYER_ID, control, BTN_PT BTN_IB,               &sk LEFT_CONTROL)
@@ -121,8 +121,8 @@
     COMBO(BASE_LAYER_ID, delete,    BTN_MT BTN_RB,               &kp DELETE)
 
     COMBO(BASE_LAYER_ID, layer_symbol,    BTN_IT BTN_MT BTN_RT BTN_PT, &sl SYMBOL_LAYER_ID)
-    COMBO(BASE_LAYER_ID, layer_move_one,  BTN_MT BTN_RT BTN_IB,        &sl MOVE_LAYER_ID)
-    COMBO(BASE_LAYER_ID, layer_move,      BTN_RT BTN_IB,               &to MOVE_LAYER_ID)
+    COMBO(BASE_LAYER_ID, layer_move_one,  BTN_RT BTN_IB,               &sl MOVE_LAYER_ID)
+    COMBO(BASE_LAYER_ID, layer_move,      BTN_MT BTN_RT BTN_IB,        &to MOVE_LAYER_ID)
     COMBO(BASE_LAYER_ID, layer_bluetooth, BTN_IT BTN_PT BTN_IB BTN_PB, &to BLUETOOTH_LAYER_ID)
 
     // Symbol layer
